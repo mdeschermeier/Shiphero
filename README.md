@@ -25,14 +25,13 @@ Examples are provided to assist you with understanding this wrapper, ***but it i
 ##### [Webhooks](#webhooks)
 
 ## Set Up
-There really isn't too much in the way of setting up. There are only three methods that fit into this category, with just one of them
-being required.
+There really isn't too much in the way of setting up, but you *must* set the API key before using this class!
 
 ### Shiphero::setKey($k) - ***Required***
 **Parameters:** $k *string*
 This method sets the variable that holds your API Key. *This method MUST be executed prior to making API calls!*
 ```PHP
-Shiphero::setKey('<your API key'>);
+Shiphero::setKey('<your API key>');
 ```
 ### Shiphero::verifyPeer($b)
 **Parameters:** $b *bool*
@@ -43,6 +42,32 @@ Shiphero::verifyPeer(true); //Enables Host/Peer Verification
     /*==== or ====*/
     
 Shiphero::verifyPeer(false); //Disables Host/Peer Verification
+```
+
+### Shiphero::setAdditionalCurlOpt($opt, $val)
+**Parameters:** $opt *const*, $val *mixed*
+In the event that additional cURL options need to be configured with your requests, they can be set via this method.
+*NOTE: CURLOPT_POST, CURLOPT_HTTPHEADER, and CURLOPT_POSTFIELDS are blacklisted and will NOT be modified!*
+```PHP
+Shiphero::setAdditionalCurlOpt(CURLOPT_VERBOSE, true);
+```
+
+### Shiphero::preserveAdditionalCurlOpt($b)
+**Parameters:** $b *bool*
+If you need cURL to remember your options for each request, this method will allow for it. Once passed a true value, the Shiphero class
+will remember your cURL option settings for each request until this method is passed a false value. *Default state is false*
+```PHP
+Shiphero::setAdditionalCurlOpt(CURLOPT_VERBOSE, true); // - set a custom cURL option for next API request.
+
+Shiphero::preserveAdditionalCurlOpt(true); // - Will remember cURL option settings until turned off
+
+//send some requests
+Shiphero::getOrderById(383484); // - cURL options remembered
+Shiphero::getProducts();        // - cURL options remembered
+
+Shiphero::preserveAdditionalCurlOpt(false); //Turn off cURL option rememberance and clear out stored values.
+
+Shiphero::getVendorList(): // - Request ran with default options
 ```
 
 ## Products
