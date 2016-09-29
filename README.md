@@ -15,19 +15,19 @@ how to structure your arrays and format your data.
 Examples are provided to assist you with understanding this wrapper, ***but it is no excuse for not understanding the actual API***.
 
 ## Table of Contents
-### * [Set Up](#set-up)
-### * [Products](#products)
-* ### [Orders](#orders)
-* ### [Vendors](#vendors)
-* ### [Fulfillment Statuses](#fulfillment-statuses)
-* ### [Purchase Orders](#purchase-orders)
-* ### [Shipments](#shipments)
-* ### [Webhooks](#webhooks)
+### [Set Up](#set-up)
+### [Products](#products)
+### [Orders](#orders)
+### [Vendors](#vendors)
+### [Fulfillment Statuses](#fulfillment-statuses)
+### [Purchase Orders](#purchase-orders)
+### [Shipments](#shipments)
+### [Webhooks](#webhooks)
 
-## [Set Up]
+## Set Up
 Put the stuff here.
 
-## [Products]
+## Products
 More stuff
 
 ## [Orders]
