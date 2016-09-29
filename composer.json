@@ -1,33 +1,8 @@
 {
     "name": "digwood/shiphero",
-    "description": "Simple PHP Wrapper for the Shiphero API",
-    "type": "library",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Digwood",
-            "email": "miked1986@gmail.com"
+    "autoload": {
+        "psr-4": {
+            "digwood\\Shiphero\\": "src"
         }
-    ],
-    "minimum-stability": "dev",
-    "require": {},
-    "repositories":[
-        {
-            "type": "package",
-            "package": {
-                "name": "Digwood/Shiphero",
-                "version": "dev-master",
-                "source": {
-                    "url": "git://github.com/digwood/Shiphero.git",
-                    "type": "git",
-                    "reference": "master"
-                },
-                "autoload": {
-                    "psr-4": {
-                        "digwood\\Shiphero\\" : "src"
-                    }
-                }
-            }
-        }
-    ]
+    }
 }
