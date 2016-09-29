@@ -66,12 +66,12 @@ Shiphero::setAdditionalCurlOpt(CURLOPT_VERBOSE, true); // - set a custom cURL op
 Shiphero::preserveAdditionalCurlOpt(true); // - Will remember cURL option settings until turned off
 
 //send some requests
-Shiphero::getOrderById(383484); // - cURL options remembered
-Shiphero::getProducts();        // - cURL options remembered
+Shiphero::getOrderById(383484); // - cURL options remembered (CURLOPT_VERBOSE = true)
+Shiphero::getProducts();        // - cURL options remembered (CURLOPT_VERBOSE = true)
 
 Shiphero::preserveAdditionalCurlOpt(false); //Turn off cURL option rememberance and clear out stored values.
 
-Shiphero::getVendorList(): // - Request ran with default options
+Shiphero::getVendorList(): // - Request ran with default options (CURLOPT_VERBOSE = false)
 ```
 
 ## Products
