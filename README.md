@@ -12,7 +12,7 @@ need to be modified, a method is provided to [accomodate this need](#shipheroset
 To make a short story even shorter: [Look at Shiphero's API Documentation](http://docs.shipheropublic.apiary.io/#) in order to understand
 how to structure your arrays and format your data. 
 
-Examples are provided to assist you with understanding this wrapper, ***but it is no excuse for not understanding the actual API***.
+Examples are provided to assist you with understanding this wrapper, ***but it is not a replacement for understanding the actual API documentation***.
 
 ## Table of Contents
 ##### [Set Up](#set-up)
