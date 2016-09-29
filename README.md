@@ -7,7 +7,7 @@ that most methods require multi-dimensional associative arrays that mimic the st
 into cURL. 
 
 This wrapper will handle all required cURL functions and JSON encoding/decoding. In the event that additional cURL options 
-need to be modified, a method is provided to [accomodate this need](#shiphero-setadditionalcurlopt-opt-val).
+need to be modified, a method is provided to [accomodate this need](#shipherosetadditionalcurloptopt-val).
 
 To make a short story even shorter: [Look at Shiphero's API Documentation](http://docs.shipheropublic.apiary.io/#) in order to understand
 how to structure your arrays and format your data. 
