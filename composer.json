@@ -1,0 +1,14 @@
+{
+    "name": "digwood/shiphero",
+    "description": "Simple PHP Wrapper for the Shiphero API",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Digwood",
+            "email": "miked1986@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
