@@ -94,7 +94,7 @@ $response = Shiphero::getProduct(); // - Get all items, no paging
 **Parameters:** $sku *string*, $prod *array*, $type *string - default "simple"*
 
 Given a sku and an array containing product information, this method will create a product. There are two types of products: `simple` and `configurable`. Configurable is generally used for creating products with variants. This method uses the `$type` parameter to distinguish
-between the two. Defaults to Simple.
+between the two. Defaults to `simple`.
 ```PHP
 $sku = 'abc-123';
 $product =  array('title'=>'Sample Item Name', 'available_inventory'=>500, 'value'=>5.00, 'price'=>5000.00,
@@ -181,7 +181,7 @@ $another_kit = array(
 Shiphero::addKitToCreationQueue($another_kit);
 
 //Kit Creation Queue Contains: $kit (3 of 'product_1-sku-123, 1 of 'product_2-sku-456)
-                               $another_kit (10 of 'product_1-sku-123, 3 of 'product_2-sku-456')
+//                             $another_kit (10 of 'product_1-sku-123, 3 of 'product_2-sku-456')
 ```
 
 ### Shiphero::createKits()
@@ -190,12 +190,49 @@ Shiphero::addKitToCreationQueue($another_kit);
 Creates a kit for each kit in the Kit Creation Queue. Clears Kit Creation Queue when finished. Example below continued from [Shiphero::addKitToCreationQueue($kit) Example](#shipheroaddkittocreationqueuekit). 
 ```PHP
 //Kit Creation Queue Contains: $kit (3 of 'product_1-sku-123, 1 of 'product_2-sku-456)
-                               $another_kit (10 of 'product_1-sku-123, 3 of 'product_2-sku-456')
+//                             $another_kit (10 of 'product_1-sku-123, 3 of 'product_2-sku-456')
                                
 Shiphero::createKits();  // - Kits are now created in Shiphero.
 
 //Kit Creation Queue Contains: Nothing (empty)
 
+```
+
+### Shiphero::addToRemoveKitComponentQueue($kit_sku, $component_skus)
+**Parameters:** $kit_sku *string*, $component_skus *array*
+
+Adds a component or list of components to be removed from a kit. `$kit_sku` is the sku of the kit you want to remove components from.
+`$component_skus` is an array of component skus.
+```PHP
+// Kit 1 (sku 'abc-123') Components (skus): p-123, p-456, p-789
+// Kit 2 (sku 'def-456') Components (skus): p-456, p-111, p-222
+
+// - Queue Removal of Item Skus 'p-456' and 'p-789' from Kit 1
+Shiphero::addToRemoveKitComponentQueue('abc-123', array('p-456', 'p-789')); 
+
+// - Queue Removal of Item Sku 'p-111' from Kit 2
+Shiphero::addToRemoveKitComponentQueue('def-456', array('p-111'));
+```
+
+### Shiphero::removeKitComponents()
+**Parameters:**
+
+Removes queued items from specified kits. Queue is cleared when this method is finished. The example below assumes a continuation of the [Shiphero::addToRemoveKitComponentQueue($kit_sku, $component_skus) Example](#shipheroaddtoremovekitcomponentqueuekitsku-componentskus)
+```PHP
+// Kit 1 (sku 'abc-123') Components (skus): p-123, p-456, p-789
+// Kit 2 (sku 'def-456') Components (skus): p-456, p-111, p-222
+
+//Removal Queue:
+//      Kit 1: p-456, p-789
+//      Kit 2: p-111
+
+Shiphero::removeKitComponents();
+
+// Kit 1 (sku 'abc-123') Components (skus): p-123
+// Kit 2 (sku 'def-456') Components (skus): p-456, p-222
+
+//Removal Queue: 
+//      Nothing (empty)
 ```
 
 ## Orders
