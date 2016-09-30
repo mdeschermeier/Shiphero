@@ -217,7 +217,7 @@ Shiphero::addToRemoveKitComponentQueue('def-456', array('p-111'));
 ### Shiphero::removeKitComponents()
 **Parameters:**
 
-Removes queued items from specified kits. Queue is cleared when this method is finished. The example below assumes a continuation of the [Shiphero::addToRemoveKitComponentQueue($kit_sku, $component_skus) Example](#shipheroaddtoremovekitcomponentqueuekitsku-componentskus)
+Removes queued items from specified kits. Queue is cleared when this method is finished. The example below assumes a continuation of the [Shiphero::addToRemoveKitComponentQueue($kit_sku, $component_skus) Example](#shipheroaddtoremovekitcomponentqueuekit_sku-component_skus)
 ```PHP
 // Kit 1 (sku 'abc-123') Components (skus): p-123, p-456, p-789
 // Kit 2 (sku 'def-456') Components (skus): p-456, p-111, p-222
