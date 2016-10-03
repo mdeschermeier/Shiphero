@@ -1,5 +1,6 @@
 {
     "license": "MIT",
+    "minimum-stability": "dev",
     "name": "mdeschermeier/shiphero",
     "autoload": {
         "psr-4": {
