@@ -4,7 +4,10 @@ Simple PHP Wrapper for the Shiphero API
 ***IMPORTANT: I am not currently, nor previously have been, affiliated with Shiphero or any of Shiphero's professional associates. This wrapper is purely my own work and carries no endorsements other than my own.***
 
 ## Installation
-Composer Installation instructions coming soon.
+The easiest way to install this package is via composer. Use the following to install this package:
+`composer require mdeschermeier/shiphero`
+
+Alternatively, these files can be downloaded and stored for use in any location you see fit, so long as `Shiphero.php` and `Shiphero_const.php` remain in the same directory.
 
 ## Introduction
 This is a *bare-bones* wrapper for Shiphero's REST API. While fully capable of interacting with the Shiphero interface, please note
