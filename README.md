@@ -12,7 +12,7 @@ Examples are provided to assist you with understanding this wrapper, ***but it i
 
 This wrapper will handle all required cURL functions and JSON encoding/decoding. In the event that additional cURL options 
 need to be modified, a method is provided to [accomodate this need](#shipherosetadditionalcurloptopt-val). Additionally, once the API 
-Key is set via `Shiphero::setKey($k)`, the `'token' => '<Your API Key>'` element of the arrays passed into the various methods of the wrapper will not be required and may be omitted from the arrays. 
+Key is set via `Shiphero::setKey($k)`, the `'token' => '<Your API Key>'` element of the arrays passed into the various methods of the wrapper will not be required and should be omitted from the arrays. 
 
 ## Table of Contents
 ##### [Set Up](#set-up)
