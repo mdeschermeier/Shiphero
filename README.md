@@ -3,6 +3,9 @@ Simple PHP Wrapper for the Shiphero API
 
 ***IMPORTANT: I am not currently, nor previously have been, affiliated with Shiphero or any of Shiphero's professional associates. This wrapper is purely my own work and carries no endorsements other than my own.***
 
+## Installation
+Composer Installation instructions coming soon.
+
 ## Introduction
 This is a *bare-bones* wrapper for Shiphero's REST API. While fully capable of interacting with the Shiphero interface, please note
 that most methods require multi-dimensional associative arrays that mimic the structure of the JSON objects that ultimately get passed
