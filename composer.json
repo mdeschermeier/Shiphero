@@ -1,7 +1,6 @@
 {
     "license": "MIT",
     "name": "mdeschermeier/shiphero",
-    "minimum-stability": "dev-master",
     "autoload": {
         "psr-4": {
             "mdeschermeier\\Shiphero\\": "src"
