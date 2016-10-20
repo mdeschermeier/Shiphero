@@ -31,6 +31,7 @@ Key is set via `Shiphero::setKey($k)`, the `'token' => '<Your API Key>'` element
 ##### [Purchase Orders](#purchase-orders)
 ##### [Shipments](#shipments)
 ##### [Webhooks](#webhooks)
+##### [Contact](#contact)
 
 ## Set Up
 
@@ -637,3 +638,9 @@ This method returns a list of all currently created webhooks.
     $webhook_list = Shiphero::getWebhooks();
     
 ```
+
+
+## Contact
+Please feel free to contact me at miked.github@gmail.com with any questions or concerns. Please include the words "Shiphero API Wrapper" in the subject line, and I will be sure to respond as soon as possible.
+
+Additionally, please log any issues/bugs with GitHub's issue tracker.
