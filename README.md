@@ -24,13 +24,13 @@ Key is set via `Shiphero::setKey($k)`, the `'token' => '<Your API Key>'` element
 
 ## Table of Contents
 ##### [Set Up](#set-up)
-##### [Products](#products)
-##### [Orders](#orders)
-##### [Vendors](#vendors)
-##### [Fulfillment Statuses](#fulfillment-statuses)
-##### [Purchase Orders](#purchase-orders)
-##### [Shipments](#shipments)
-##### [Webhooks](#webhooks)
+##### [Product](#products)
+##### [Order](#orders)
+##### [Vendor](#vendors)
+##### [Fulfillment Status](#fulfillment-statuses)
+##### [Purchase Order](#purchase-orders)
+##### [Shipment](#shipments)
+##### [Webhook](#webhooks)
 ##### [Contact](#contact-me)
 
 ## Set Up
