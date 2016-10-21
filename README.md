@@ -45,7 +45,7 @@ Shiphero::setKey('<your API key>');
 ### Shiphero::verifyPeer($b)
 **Parameters:** $b *bool*
 
-Toggle Host/Peer verification on cURL requests. Can be toggled as needed.
+Toggle Host/Peer verification on cURL requests. Can be toggled as needed. *set to true by default*
 ```PHP
 Shiphero::verifyPeer(true); //Enables Host/Peer Verification
 
