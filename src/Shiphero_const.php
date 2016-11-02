@@ -37,12 +37,5 @@
 		//---- WEBHOOK CONSTANTS ----//
 		const WEBHOOK_REGISTER			= 'register-webhook/';
 		const WEBHOOK_GET				= 'get-webhooks/';		//q-string
-		const WEBHOOK_SHIPMENT_UPDATE	= '/shipment/update/url';
-		const WEBHOOK_INVENTORY_UPDATE	= '/inventory/update/url';
-		const WEBHOOK_LPN				= '/lpn';
-		const WEBHOOK_CAPTURE_PAYMENT	= '/capture'; //STILL IN API DEVELOPMENT! NOT LIVE!!!
-		const WEBHOOK_ORDER_CANCELED	= '/canceled';
-		const WEBHOOK_PO_UPDATE			= '/purchase_order/update/url';
-		const WEBHOOK_RETURN_UPDATE		= '/return/update/url';
 
 ?>
