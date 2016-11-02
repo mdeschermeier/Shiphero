@@ -140,7 +140,7 @@
 			return self::cExec();
 		}
 
-		static public function updateInventory($prod){
+		static public function updateInventory(){
 			self::postRequestSetup(INVENTORY_UPDATE);
 			$res = self::cSubmitPost(array('token'=>self::$key, 'products'=>self::$productUpdateQueue));
 			self::clearQueue('productUpdateQueue');
