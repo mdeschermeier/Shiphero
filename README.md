@@ -88,7 +88,7 @@ Shiphero::getVendorList(): // - Request ran with default options (CURLOPT_VERBOS
 ### Shiphero::getProduct($prod = null)
 **Parameters:** $prod *array* - *optional*
 
-Query the API for product information. This method handles both the retrieval of a single product (by sku) and the retrieval of *all* items.
+Query the API for product information. This method handles both the retrieval of a single product (by sku) and the retrieval of *all* items using default settings.
 ```PHP
 $prod = array('sku' => 12345);
 $response = Shiphero::getProduct($prod) // - Get one item.
@@ -96,7 +96,7 @@ $response = Shiphero::getProduct($prod) // - Get one item.
 $prod = array('page'=>2, 'count'=>150);
 $response = Shiphero::getProduct($prod); // - Of all items, return second page, limit 150 items per page.
 
-$response = Shiphero::getProduct(); // - Get all items, no paging
+$response = Shiphero::getProduct(); // - Get all items, no paging (returns the first 50 products).
 ```
 
 ### Shiphero::createProduct($sku, $prod, $type = 'simple')
