@@ -38,4 +38,6 @@
 		const WEBHOOK_REGISTER			= 'register-webhook/';
 		const WEBHOOK_GET				= 'get-webhooks/';		//q-string
 
+		//---- SETTINGS ----//
+		const MAX_QUEUE_XMIT_SIZE		= 10;
 ?>

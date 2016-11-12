@@ -83,13 +83,21 @@
 		}
 
 		static protected function cSubmitPost($p){
-			var_dump(json_encode($p));
 			curl_setopt(self::$ch, CURLOPT_POSTFIELDS, json_encode($p));
 			return self::cExec();
 		}
 
 		static protected function clearQueue($queue_name){
 			self::${$queue_name} = array();
+		}
+
+		static protected function clearQueueChunk($queue_name){
+			for ($i = 0; $i < MAX_QUEUE_XMIT_SIZE; $i++){
+				if (isset(self::${$queue_name}[$i])){
+					unset(self::${$queue_name}[$i]);
+				}
+			}
+			self::${$queue_name} = array_values(self::${$queue_name});
 		}
 
 		static protected function setPOExpectedDate($po){
@@ -141,10 +149,17 @@
 		}
 
 		static public function updateInventory(){
-			self::postRequestSetup(INVENTORY_UPDATE);
-			$res = self::cSubmitPost(array('token'=>self::$key, 'products'=>self::$productUpdateQueue));
-			self::clearQueue('productUpdateQueue');
-			return $res;
+			while(!empty(self::$productUpdateQueue)){
+				$submit_array = array();
+				for($i = 0; $i < MAX_QUEUE_XMIT_SIZE; $i++){
+					if (isset(self::$productUpdateQueue[$i])){
+						array_push($submit_array, self::$productUpdateQueue[$i]);
+					}
+				}
+				self::postRequestSetup(INVENTORY_UPDATE);
+				$res = self::cSubmitPost(array('token'=>self::$key, 'products'=>$submit_array));
+				self::clearQueueChunk('productUpdateQueue');
+			}
 		}
 
 		static public function addProductToUpdateQueue($prod){
@@ -165,7 +180,6 @@
 			self::postRequestSetup(KIT_CREATE);
 			$res = self::cSubmitPost(array('token'=>self::$key, 'kits'=>self::$kitCreationQueue));
 			self::clearQueue('kitCreationQueue');
-			var_dump(self::$kitCreationQueue);
 			return $res;
 		}
 
@@ -298,6 +312,5 @@
 			self::buildEndpointUrl(WEBHOOK_GET, null, true);
 			return self::cExec();
 		}
-
 	}
 ?>
