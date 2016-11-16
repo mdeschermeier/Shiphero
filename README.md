@@ -163,11 +163,11 @@ $kit = array(
             'parent_sku' => 'kit-sku-123',
             'components' => array(
                                  'sku'=>'product_1-sku-123',
-                                 'quantity'=> 3
+                                 'qty'=> 3
                             ),
                             array(
                                  'sku'=>'product_2-sku-456',
-                                 'quantity'=>1
+                                 'qty'=>1
                             )
             );
      
@@ -179,11 +179,11 @@ $another_kit = array(
             'parent_sku' => 'kit-sku-456',
             'components' => array(
                                  'sku'=>'product_1-sku-123',
-                                 'quantity'=> 10
+                                 'qty'=> 10
                             ),
                             array(
                                  'sku'=>'product_2-sku-456',
-                                 'quantity'=>3
+                                 'qty'=>3
                             )
             );
      
