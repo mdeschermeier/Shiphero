@@ -127,12 +127,12 @@ This method will add a product to the Product Inventory Update Queue. When used 
 basic product information can be updated. [Please see the API documentation](http://docs.shipheropublic.apiary.io/#reference/products/update-inventory/update-product-inventory) for a complete list of parameters that can be set.
 ```PHP
 $product_1 = array('sku'=>'abc-123', 'quantity'=> -2, 'warehouse'=>'Secondary', 'width'=>'2.5');
-Shiphero::addProductToUpdateQueue($product_1);
+Shiphero::addProductToUpdateInventoryQueue($product_1);
 
 //Product Inventory Update Queue Contains: $product_1
 
 $product_2 = array('sku'=>'def-456', 'new_quantity'=>200);
-Shiphero::adddProductToUpdateQueue($product_2);
+Shiphero::adddProductToUpdateInventoryQueue($product_2);
 
 //Product Inventory Update Queue Now Contains: $product_1, $product_2
 ```
@@ -147,8 +147,8 @@ $product_1 = array('sku'=>'abc-123', 'quantity'=> -2, 'warehouse'=>'Secondary', 
 $product_2 = array('sku'=>'def-456', 'new_quantity'=>200);
 
 //Add Products to Update Queue
-Shiphero::addProductToUpdateQueue($product_1);
-Shiphero::addProductToUpdateQueue($product_2);
+Shiphero::addProductToUpdateInventoryQueue($product_1);
+Shiphero::addProductToUpdateInventoryQueue($product_2);
 
 //Update Products in Queue
 Shiphero::updateInventory();
