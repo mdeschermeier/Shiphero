@@ -162,7 +162,7 @@
 			}
 		}
 
-		static public function addProductToUpdateQueue($prod){
+		static public function addProductToUpdateInventoryQueue($prod){
 			array_push(self::$productUpdateQueue, $prod);
 		}
 
