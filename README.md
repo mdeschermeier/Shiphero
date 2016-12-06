@@ -162,13 +162,15 @@ Add a kit to the Kit Creation Queue. Used in conjunction with `Shiphero::createK
 $kit = array(
             'parent_sku' => 'kit-sku-123',
             'components' => array(
+	    			array(
                                  'sku'=>'product_1-sku-123',
                                  'qty'=> 3
-                            ),
-                            array(
+                            	),
+                            	array(
                                  'sku'=>'product_2-sku-456',
                                  'qty'=>1
-                            )
+                            	)
+			    )
             );
      
 Shiphero::addKitToCreationQueue($kit);
@@ -178,13 +180,15 @@ Shiphero::addKitToCreationQueue($kit);
 $another_kit = array(
             'parent_sku' => 'kit-sku-456',
             'components' => array(
+	    			array(
                                  'sku'=>'product_1-sku-123',
                                  'qty'=> 10
-                            ),
-                            array(
+                            	),
+                            	array(
                                  'sku'=>'product_2-sku-456',
                                  'qty'=>3
-                            )
+                            	)
+			   )
             );
      
 Shiphero::addKitToCreationQueue($another_kit);
