@@ -1,4 +1,6 @@
 <?php
+	namespace mdeschermeier\shiphero;
+
 	require_once "Shiphero_const.php";
 
 	class Shiphero{
