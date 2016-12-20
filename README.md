@@ -3,6 +3,8 @@ Simple PHP Wrapper for the Shiphero API
 
 ***IMPORTANT: I am not currently, nor previously have been, affiliated with Shiphero or any of Shiphero's professional associates. This wrapper is purely my own work and carries no endorsements other than my own.***
 
+**Note: Just as a heads up, I'm finding there are some issues with post requests being silently discarded by the API if they are too long. I have plans to remedy the issue by batching out the update queues into multiple requests, but - as the holiday season is quite busy for me this year, I won't be able to definitely have it in place until sometime shortly after the new year.**
+
 ## Installation
 The easiest way to install this package is via composer. Use the following to install this package:
 `composer require mdeschermeier/shiphero`
