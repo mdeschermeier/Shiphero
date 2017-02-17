@@ -109,6 +109,16 @@
 			return $po['expected_date'];
 		}
 
+		static protected function retrieveQueueChunk($queue_name){
+			$ret_array = array();
+			for($i = 0; $i < MAX_QUEUE_XMIT_SIZE; $i++){
+				if (isset(self::${$queue_name}[$i])){
+					array_push($ret_array, self::${$queue_name}[$i]);
+				}
+			}
+			return $ret_array;
+		}
+
 		//====================================//
 		//========== PUBLIC METHODS ==========//
 		//====================================//
@@ -152,19 +162,14 @@
 
 		static public function updateInventory(){
 			while(!empty(self::$productUpdateQueue)){
-				$submit_array = array();
-				for($i = 0; $i < MAX_QUEUE_XMIT_SIZE; $i++){
-					if (isset(self::$productUpdateQueue[$i])){
-						array_push($submit_array, self::$productUpdateQueue[$i]);
-					}
-				}
+				$submit_array = self::retrieveQueueChunk('productUpdateQueue');
 				self::postRequestSetup(INVENTORY_UPDATE);
 				$res = self::cSubmitPost(array('token'=>self::$key, 'products'=>$submit_array));
 				self::clearQueueChunk('productUpdateQueue');
 			}
 		}
 
-		static public function addProductToUpdateInventoryQueue($prod){
+		static public function addProductToUpdateQueue($prod){
 			array_push(self::$productUpdateQueue, $prod);
 		}
 
@@ -178,11 +183,17 @@
 			array_push(self::$kitCreationQueue, $kit);
 		}
 
+		static public function showKitCreationQueue(){
+			return self::$kitCreationQueue;
+		}
+
 		static public function createKits(){
-			self::postRequestSetup(KIT_CREATE);
-			$res = self::cSubmitPost(array('token'=>self::$key, 'kits'=>self::$kitCreationQueue));
-			self::clearQueue('kitCreationQueue');
-			return $res;
+			while(!empty(self::$kitCreationQueue)){
+				$submit_array = self::retrieveQueueChunk('kitCreationQueue');
+				self::postRequestSetup(KIT_CREATE);
+				$res = self::cSubmitPost(array('token'=>self::$key, 'kits'=>$submit_array));
+				self::clearQueueChunk('kitCreationQueue');
+			}
 		}
 
 		static public function addToRemoveKitComponentQueue($kit_sku, $components){
@@ -194,8 +205,12 @@
 		}
 
 		static public function removeKitComponents(){
-			self::postRequestSetup(KIT_REMOVE);
-			return self::cSubmitPost(array('token'=>self::$key, 'kits'=>self::$removeKitComponentQueue));
+			while(!empty(self::$removeKitComponentQueue)){
+				$submit_array = self::retrieveQueueChunk('removeKitComponentQueue');
+				self::postRequestSetup(KIT_REMOVE);
+				self::cSubmitPost(array('token'=>self::$key, 'kits'=>$submit_array));
+				self::clearQueueChunk('removeKitComponentQueue');
+			}
 		}
 
 		static public function clearKit($sku){
@@ -258,10 +273,12 @@
 		}
 
 		static public function addProductsToVendors(){
-			self::postRequestSetup(VENDORS_ADD_PROD);
-			$res = self::cSubmitPost(array('token'=>self::$key, 'data'=>self::$addProductToVendorQueue));
-			self::clearQueue('addProductToVendorQueue');
-			return $res;
+			while(!empty(self::$addProductToVendorQueue)){
+				$submit_array = self::retrieveQueueChunk('addProductToVendorQueue');
+				self::postRequestSetup(VENDORS_ADD_PROD);
+				$res = self::cSubmitPost(array('token'=>self::$key, 'data'=>$submit_array));
+				self::clearQueueChunk('addProductToVendorQueue');
+			}
 		}
 
 		static public function createFulfillmentStatus($status){
