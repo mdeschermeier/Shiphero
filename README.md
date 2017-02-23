@@ -120,14 +120,14 @@ Shiphero::createProduct($sku, $product); // - Create the simple product.
 To create a Configurable Product (a product with Variants), the same structure for the `$product` array should be followed. 
 [Please see the API documentation](http://docs.shipheropublic.apiary.io/#reference/products/create-product/create-and-update-product-with-variants) for a complete list of parameters that can be set.
 
-### Shiphero::addProductToUpdateInventoryQueue($prod)
+### Shiphero::addProductToUpdateQueue($prod)
 **Parameters:** $prod *array*
 
 This method will add a product to the Product Inventory Update Queue. When used in conjunction with `Shiphero::updateInventory()`,
 basic product information can be updated. [Please see the API documentation](http://docs.shipheropublic.apiary.io/#reference/products/update-inventory/update-product-inventory) for a complete list of parameters that can be set.
 ```PHP
 $product_1 = array('sku'=>'abc-123', 'quantity'=> -2, 'warehouse'=>'Secondary', 'width'=>'2.5');
-Shiphero::addProductToUpdateInventoryQueue($product_1);
+Shiphero::addProductToUpdateQueue($product_1);
 
 //Product Inventory Update Queue Contains: $product_1
 
@@ -147,8 +147,8 @@ $product_1 = array('sku'=>'abc-123', 'quantity'=> -2, 'warehouse'=>'Secondary', 
 $product_2 = array('sku'=>'def-456', 'new_quantity'=>200);
 
 //Add Products to Update Queue
-Shiphero::addProductToUpdateInventoryQueue($product_1);
-Shiphero::addProductToUpdateInventoryQueue($product_2);
+Shiphero::addProductToUpdateQueue($product_1);
+Shiphero::addProductToUpdateQueue($product_2);
 
 //Update Products in Queue
 Shiphero::updateInventory();
