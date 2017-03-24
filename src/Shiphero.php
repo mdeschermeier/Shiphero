@@ -264,7 +264,7 @@
 		}
 
 		static public function createVendor($vendor){
-			self::postRequestSetup(VENDOR_CREATE);
+			self::postRequestSetup(VENDORS_CREATE);
 			return self::cSubmitPost(array_merge($vendor, array('token'=>self::$key)));
 		}
 
